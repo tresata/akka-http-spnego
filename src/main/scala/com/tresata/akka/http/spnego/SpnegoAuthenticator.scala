@@ -56,7 +56,7 @@ object SpnegoAuthenticator {
     extractExecutionContext.flatMap{ implicit ec =>
       extractLog.flatMap{ implicit log =>
         log.debug("creating spnego authenticator")
-        val spnego: SpnegoAuthenticator = SpnegoAuthenticator(config)
+        val spnego = SpnegoAuthenticator(config)
         extract(ctx => Future(spnego.apply(ctx))).flatMap(onSuccess(_)).flatMap{
           case Left(rejection) => reject(rejection)
           case Right(token) => provide(token) & spnego.setSpnegoCookie(token)
@@ -127,14 +127,14 @@ class SpnegoAuthenticator(principal: String, keytab: String, debug: Boolean, dom
         Right(token) 
       }.getOrElse{
         log.debug("no token received but if there is a serverToken then negotiations are ongoing")
-        Left(AuthenticationFailedRejection(CredentialsMissing, HttpChallenge(challengeHeader(maybeServerToken).value, null)))
+        Left(AuthenticationFailedRejection(CredentialsMissing, HttpChallenge(challengeHeader(maybeServerToken).value, None)))
       }
     } catch {
       case e: PrivilegedActionException => e.getException match {
         case e: IOException => throw e // server error
         case e: Throwable =>
           log.error(e, "negotiation failed")
-          Left(AuthenticationFailedRejection(CredentialsRejected, HttpChallenge(challengeHeader().value, null))) // rejected
+          Left(AuthenticationFailedRejection(CredentialsRejected, HttpChallenge(challengeHeader().value, None))) // rejected
       }
     }
   }
@@ -143,7 +143,7 @@ class SpnegoAuthenticator(principal: String, keytab: String, debug: Boolean, dom
 
   private def initiateNegotiations: Either[Rejection, Token] = {
     log.debug("no negotiation header found, initiating negotiations")
-    Left(AuthenticationFailedRejection(CredentialsMissing, HttpChallenge(challengeHeader().value, null)))
+    Left(AuthenticationFailedRejection(CredentialsMissing, HttpChallenge(challengeHeader().value, None)))
   }
 
   def apply(ctx: RequestContext): Either[Rejection, Token] = cookieToken(ctx).orElse(kerberosNegotiate(ctx)).getOrElse(initiateNegotiations)
