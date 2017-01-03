@@ -9,7 +9,37 @@ lazy val sharedSettings = Seq(
   scalacOptions in (Test, console) := (scalacOptions in (Test, console)).value.filter(_ != "-Ywarn-unused-import"),
   publishMavenStyle := true,
   pomIncludeRepository := { x => false },
-  publishArtifact in Test := false
+  publishArtifact in Test := false,
+  publishTo := {
+    val nexus = "https://oss.sonatype.org/"
+    if (isSnapshot.value)
+      Some("snapshots" at nexus + "content/repositories/snapshots")
+    else
+      Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+  },
+  credentials += Credentials(Path.userHome / ".m2" / "credentials_sonatype"),
+  pomExtra := (
+    <url>https://github.com/tresata/akka-http-spnego</url>
+    <licenses>
+      <license>
+        <name>Apache 2</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>  
+        <distribution>repo</distribution>
+        <comments>A business-friendly OSS license</comments>
+      </license>
+    </licenses>
+    <scm>
+      <url>git@github.com:tresata/akka-http-spnego.git</url>
+      <connection>scm:git:git@github.com:tresata/akka-http-spnego.git</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>koertkuipers</id>
+        <name>Koert Kuipers</name>
+        <url>https://github.com/koertkuipers</url>
+      </developer>
+    </developers>
+  )
 )
 
 lazy val `akka-http-spnego` = (project in file(".")).settings(
