@@ -1,0 +1,4 @@
+#!/bin/sh
+sbt test-server/run -Djavax.net.ssl.keyStore=test-server/src/main/resources/testKeystore -Djavax.net.ssl.keyStorePassword=changeit -Djavax.net.debug=ssl
+
+# curl -k --negotiate -u : -b ~/cookiejar.txt -c ~/cookiejar.txt https://someserver:12345/ping
