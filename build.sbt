@@ -48,7 +48,7 @@ lazy val `akka-http-spnego` = (project in file(".")).settings(
   name := "akka-http-spnego",
   libraryDependencies ++= Seq(
     "org.slf4j" % "slf4j-api" % "1.7.5" % "compile",
-    "com.typesafe.akka" %% "akka-http" % "10.0.3" % "compile",
+    "com.typesafe.akka" %% "akka-http" % "10.0.5" % "compile",
     "commons-codec" % "commons-codec" % "1.4" % "compile",
     "org.scalatest" %% "scalatest" % "2.2.6" % "test"
   )
