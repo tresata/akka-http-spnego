@@ -50,8 +50,8 @@ lazy val `akka-http-spnego` = (project in file(".")).settings(
     "org.slf4j" % "slf4j-api" % "1.7.25" % "compile",
     "com.typesafe.akka" %% "akka-http" % "10.1.1" % "compile",
     "com.typesafe.akka" %% "akka-stream" % "2.5.12" % "compile",
-    "commons-codec" % "commons-codec" % "1.4" % "compile",
-    "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+    "commons-codec" % "commons-codec" % "1.10" % "compile",
+    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
   )
 )
 
