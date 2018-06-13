@@ -14,11 +14,12 @@ lazy val sharedSettings = Seq(
   publishTo := {
     val nexus = "https://oss.sonatype.org/"
     if (isSnapshot.value)
-      Some("snapshots" at nexus + "content/repositories/snapshots")
+      Some("snapshots" at "http://server02.tresata.com:8081/artifactory/oss-libs-snapshot-local")
     else
       Some("releases"  at nexus + "service/local/staging/deploy/maven2")
   },
   credentials += Credentials(Path.userHome / ".m2" / "credentials_sonatype"),
+  credentials += Credentials(Path.userHome / ".m2" / "credentials_artifactory"),
   pomExtra := (
     <url>https://github.com/tresata/akka-http-spnego</url>
     <licenses>
