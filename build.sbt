@@ -1,6 +1,6 @@
 lazy val sharedSettings = Seq(
   organization := "com.tresata",
-  version := "0.5.0-SNAPSHOT",
+  version := "0.5.0",
   scalaVersion := "2.12.10",
   crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1"),
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-target:jvm-1.8", "-feature", "-language:_", "-Xlint:-package-object-classes,-adapted-args,_",
