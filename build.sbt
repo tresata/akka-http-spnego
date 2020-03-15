@@ -8,6 +8,7 @@ lazy val sharedSettings = Seq(
   scalacOptions in (Test, compile) := (scalacOptions in (Test, compile)).value.filter(_ != "-Ywarn-value-discard").filter(_ != "-Ywarn-unused"),
   scalacOptions in (Compile, console) := (scalacOptions in (Compile, console)).value.filter(_ != "-Ywarn-unused-import"),
   scalacOptions in (Test, console) := (scalacOptions in (Test, console)).value.filter(_ != "-Ywarn-unused-import"),
+  useCoursier := false,
   publishMavenStyle := true,
   pomIncludeRepository := { x => false },
   publishArtifact in Test := false,
