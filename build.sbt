@@ -2,7 +2,7 @@ lazy val sharedSettings = Seq(
   organization := "com.tresata",
   version := "0.6.0-SNAPSHOT",
   scalaVersion := "2.12.10",
-  crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.3"),
+  crossScalaVersions := Seq("2.12.10", "2.13.5"),
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-target:jvm-1.8", "-feature", "-language:_", "-Xlint:-package-object-classes,-adapted-args,_",
     "-Ywarn-dead-code", "-Ywarn-value-discard", "-Ywarn-unused"),
   scalacOptions in (Test, compile) := (scalacOptions in (Test, compile)).value.filter(_ != "-Ywarn-value-discard").filter(_ != "-Ywarn-unused"),
@@ -50,10 +50,10 @@ lazy val `akka-http-spnego` = (project in file(".")).settings(
   name := "akka-http-spnego",
   libraryDependencies ++= Seq(
     "org.slf4j" % "slf4j-api" % "1.7.25" % "compile",
-    "com.typesafe.akka" %% "akka-http" % "10.1.12" % "compile",
-    "com.typesafe.akka" %% "akka-stream" % "2.5.31" % "compile",
+    "com.typesafe.akka" %% "akka-http" % "10.2.4" % "compile",
+    "com.typesafe.akka" %% "akka-stream" % "2.5.32" % "compile",
     "commons-codec" % "commons-codec" % "1.10" % "compile",
-    "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+    "org.scalatest" %% "scalatest-funspec" % "3.2.6" % "test"
   )
 )
 
@@ -63,7 +63,7 @@ lazy val `test-server` = (project in file("test-server")).settings(
   name := "test-server",
   libraryDependencies ++= Seq(
     "org.slf4j" % "slf4j-log4j12" % "1.7.25" % "compile",
-    "com.typesafe.akka" %% "akka-slf4j" % "2.5.31" % "compile"
+    "com.typesafe.akka" %% "akka-slf4j" % "2.5.32" % "compile"
   ),
   publish := { },
   publishLocal := { }

@@ -6,7 +6,7 @@ import java.security.{ PrivilegedAction, PrivilegedExceptionAction, PrivilegedAc
 import javax.security.auth.Subject
 import javax.security.auth.login.LoginContext
 import javax.security.auth.kerberos.KerberosPrincipal
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.Future
 import scala.collection.JavaConverters._
 
 import com.typesafe.config.{ Config, ConfigFactory }
@@ -32,7 +32,7 @@ object SpnegoAuthenticator {
   private val negotiate = "Negotiate"
   private val wwwAuthenticate = "WWW-Authenticate"
 
-  def apply(config: Config = ConfigFactory.load())(implicit ec: ExecutionContext, log: LoggingAdapter): SpnegoAuthenticator = {
+  def apply(config: Config = ConfigFactory.load())(implicit log: LoggingAdapter): SpnegoAuthenticator = {
     val principal = config.getString("tresata.akka.http.spnego.kerberos.principal")
     val keytab = config.getString("tresata.akka.http.spnego.kerberos.keytab")
     val debug = config.getBoolean("tresata.akka.http.spnego.kerberos.debug")

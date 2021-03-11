@@ -1,9 +1,9 @@
 package com.tresata.akka.http.spnego
 
 import java.nio.charset.StandardCharsets.UTF_8
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
-class TokenSpec extends FunSpec {
+class TokenSpec extends AnyFunSpec {
   describe("Token") {
     val tokens = new Tokens(3600 * 1000, "secret".getBytes(UTF_8))
 
