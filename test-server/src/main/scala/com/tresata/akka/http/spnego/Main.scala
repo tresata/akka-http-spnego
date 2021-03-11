@@ -41,7 +41,7 @@ object Main extends App {
   val connectionContext = ConnectionContext.httpsServer(sslContext)
 
   Http()
-    .newServer("0.0.0.0", 12345)
+    .newServerAt("0.0.0.0", 12345)
     .enableHttps(connectionContext)
     .bind(route)
 }
