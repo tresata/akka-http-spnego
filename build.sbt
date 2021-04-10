@@ -51,7 +51,7 @@ lazy val `akka-http-spnego` = (project in file(".")).settings(
   libraryDependencies ++= Seq(
     "org.slf4j" % "slf4j-api" % "1.7.25" % "compile",
     "com.typesafe.akka" %% "akka-http" % "10.2.4" % "compile",
-    "com.typesafe.akka" %% "akka-stream" % "2.5.32" % "compile",
+    "com.typesafe.akka" %% "akka-stream" % "2.6.13" % "compile",
     "commons-codec" % "commons-codec" % "1.10" % "compile",
     "org.scalatest" %% "scalatest-funspec" % "3.2.6" % "test"
   )
@@ -63,7 +63,7 @@ lazy val `test-server` = (project in file("test-server")).settings(
   name := "test-server",
   libraryDependencies ++= Seq(
     "org.slf4j" % "slf4j-log4j12" % "1.7.25" % "compile",
-    "com.typesafe.akka" %% "akka-slf4j" % "2.5.32" % "compile"
+    "com.typesafe.akka" %% "akka-slf4j" % "2.6.13" % "compile"
   ),
   publish := { },
   publishLocal := { }
