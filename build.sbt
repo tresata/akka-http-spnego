@@ -5,12 +5,12 @@ lazy val sharedSettings = Seq(
   crossScalaVersions := Seq("2.12.10", "2.13.5"),
   scalacOptions ++= Seq("-unchecked", "-deprecation", "-target:jvm-1.8", "-feature", "-language:_", "-Xlint:-package-object-classes,-adapted-args,_",
     "-Ywarn-dead-code", "-Ywarn-value-discard", "-Ywarn-unused"),
-  scalacOptions in (Test, compile) := (scalacOptions in (Test, compile)).value.filter(_ != "-Ywarn-value-discard").filter(_ != "-Ywarn-unused"),
-  scalacOptions in (Compile, console) := (scalacOptions in (Compile, console)).value.filter(_ != "-Ywarn-unused-import"),
-  scalacOptions in (Test, console) := (scalacOptions in (Test, console)).value.filter(_ != "-Ywarn-unused-import"),
+  Test / compile / scalacOptions := (Test / compile / scalacOptions).value.filter(_ != "-Ywarn-value-discard").filter(_ != "-Ywarn-unused"),
+  Compile / console / scalacOptions := (Compile / console / scalacOptions).value.filter(_ != "-Ywarn-unused-import"),
+  Test / console / scalacOptions := (Test / console / scalacOptions).value.filter(_ != "-Ywarn-unused-import"),
   publishMavenStyle := true,
   pomIncludeRepository := { x => false },
-  publishArtifact in Test := false,
+  Test / publishArtifact := false,
   publishTo := {
     val nexus = "https://oss.sonatype.org/"
     if (isSnapshot.value)
