@@ -1,12 +1,12 @@
 package com.tresata.akka.http.spnego
 
 import java.io.FileInputStream
-import java.security.{ KeyStore, SecureRandom }
-import javax.net.ssl.{ KeyManagerFactory, TrustManagerFactory, SSLContext }
+import java.security.{KeyStore, SecureRandom}
+import javax.net.ssl.{KeyManagerFactory, TrustManagerFactory, SSLContext}
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
-import akka.http.scaladsl.{ ConnectionContext, Http }
+import akka.http.scaladsl.{ConnectionContext, Http}
 import akka.http.scaladsl.server.Directives._
 
 import com.tresata.akka.http.spnego.SpnegoDirectives._

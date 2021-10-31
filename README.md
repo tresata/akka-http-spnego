@@ -1,4 +1,4 @@
-[![Build Status](https://api-staging.travis-ci.com/tresata/akka-http-spnego.svg?branch=master)](https://staging.travis-ci.com/tresata/akka-http-spnego)
+![Build Status](https://github.com/tresata/akka-http-spnego/actions/workflows/ci.yml/badge.svg)
 
 # akka-http-spnego
 akka-http-spnego provides Kerberos based authentication for akka-http using SPNEGO. SPNEGO is a way to do GSSAPI authentication between clients and servers using the HTTP authentication header.

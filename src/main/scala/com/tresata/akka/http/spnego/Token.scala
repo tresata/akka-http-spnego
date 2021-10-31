@@ -3,7 +3,7 @@ package com.tresata.akka.http.spnego
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets.UTF_8
 import java.security.MessageDigest
-import scala.util.{ Try, Success }
+import scala.util.{Try, Success}
 
 import org.apache.commons.codec.binary.Base64
 

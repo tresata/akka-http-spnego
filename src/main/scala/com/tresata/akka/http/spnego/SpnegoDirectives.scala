@@ -1,6 +1,6 @@
 package com.tresata.akka.http.spnego
 
-import com.typesafe.config.{ Config, ConfigFactory }
+import com.typesafe.config.{Config, ConfigFactory}
 
 import akka.http.scaladsl.server.Directive1
 

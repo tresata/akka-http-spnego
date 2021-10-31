@@ -1,6 +1,6 @@
 package com.tresata.akka.http.spnego
 
-import javax.security.auth.login.{ Configuration, AppConfigurationEntry }
+import javax.security.auth.login.{Configuration, AppConfigurationEntry}
 
 import scala.collection.JavaConverters._
 

@@ -2,25 +2,25 @@ package com.tresata.akka.http.spnego
 
 import java.io.IOException
 import java.nio.charset.StandardCharsets.UTF_8
-import java.security.{ PrivilegedAction, PrivilegedExceptionAction, PrivilegedActionException }
+import java.security.{PrivilegedAction, PrivilegedExceptionAction, PrivilegedActionException}
 import javax.security.auth.Subject
 import javax.security.auth.login.LoginContext
 import javax.security.auth.kerberos.KerberosPrincipal
 import scala.concurrent.Future
 import scala.collection.JavaConverters._
 
-import com.typesafe.config.{ Config, ConfigFactory }
+import com.typesafe.config.{Config, ConfigFactory}
 
-import org.ietf.jgss.{ GSSManager, GSSCredential }
+import org.ietf.jgss.{GSSManager, GSSCredential}
 
 import akka.event.LoggingAdapter
 
 import akka.http.scaladsl.model.HttpHeader
-import akka.http.scaladsl.model.headers.{ Cookie, HttpCookie, HttpChallenge, RawHeader }
-import akka.http.scaladsl.server.{ Directive0, Directive1, RequestContext, Rejection, AuthenticationFailedRejection, MalformedHeaderRejection }
-import akka.http.scaladsl.server.AuthenticationFailedRejection.{ CredentialsMissing, CredentialsRejected }
+import akka.http.scaladsl.model.headers.{Cookie, HttpCookie, HttpChallenge, RawHeader}
+import akka.http.scaladsl.server.{Directive0, Directive1, RequestContext, Rejection, AuthenticationFailedRejection, MalformedHeaderRejection}
+import akka.http.scaladsl.server.AuthenticationFailedRejection.{CredentialsMissing, CredentialsRejected}
 import akka.http.scaladsl.server.directives.CookieDirectives.setCookie
-import akka.http.scaladsl.server.directives.BasicDirectives.{ extractExecutionContext, extractLog, extract, provide }
+import akka.http.scaladsl.server.directives.BasicDirectives.{extractExecutionContext, extractLog, extract, provide}
 import akka.http.scaladsl.server.directives.RouteDirectives.reject
 import akka.http.scaladsl.server.directives.FutureDirectives.onSuccess
 
